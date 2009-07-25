@@ -1,0 +1,48 @@
+!!! XML
+!!! 1.1
+%html{ :xmlns => 'http://www.w3.org/1999/xhtml', 'xml:lang' => 'en'}
+  %head
+    %title= @title
+
+    / Meta
+    %meta{ 'http-equiv' => 'Content-Type', 'content' => 'text/html; charset=utf-8' }
+
+    / FavIcon
+    %link{ :rel => 'shortcut icon', :href => '' }
+
+    / CSS
+    %style{ :type => 'text/css', :media => 'all'} @import url('/styles/reset.css');
+    %style{ :type => 'text/css', :media => 'all'} @import url('/styles/structure.css');
+    %style{ :type => 'text/css', :media => 'all'} @import url('/styles/color.css');
+    %style{ :type => 'text/css', :media => 'all'} @import url('/styles/typography.css');
+    %style{ :type => 'text/css', :media => 'all'} @import url('/styles/miscellaneous.css');
+    %style{ :type => 'text/css', :media => 'all'} @import url('/vendor/blackbird_1_0/blackbird.css');
+
+    / JavaScript
+    %script{ :type => 'text/javascript', :src => 'http://www.google.com/jsapi' }
+    %script{ :type => 'text/javascript', :src => '/vendor/blackbird_1_0/blackbird.js' }
+    %script{ :type => 'text/javascript', :src => '/scripts/initialize.js' }
+    %script{ :type => 'text/javascript', :src => '/scripts/application.js' }
+
+  %body
+    %div#flash
+
+    %div#branding.section
+      %h1#question IsItTheWeekendYet?
+
+    %div#content.section
+      %div.section.primary= yield
+      %div.section.secondary
+
+    %div#credit.section
+      %p &copy; 2009 Thomas Ingram
+
+    :javascript
+      var gaJsHost = ((document.location.protocol == 'https:') ? 'https://ssl.' : 'http://www.');
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+      try {
+        var pageTracker = _gat._getTracker('UA-2066808-18');
+        pageTracker._trackPageview();
+      } catch (err) {
+      }
+

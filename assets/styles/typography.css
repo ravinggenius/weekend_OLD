@@ -1,0 +1,36 @@
+@font-face {
+	font-family: "Abecedarian";
+	src: url(/fonts/Abecedarian.ttf) format("truetype");
+}
+
+body {
+	font-family: "Abecedarian", "Purisa", "Umpush", "Granada", "Helvetica", "Arial", sans-serif;
+}
+
+.section {
+	text-align: center;
+}
+
+#branding {
+}
+	#question {
+		font-size: 3em;
+		font-weight: normal;
+	}
+
+#content {
+}
+	#content .primary {
+	}
+		#answer,
+		#countdown {
+			font-size: 5em;
+			font-weight: bold;
+		}
+		#countdown {
+		}
+
+#credits {
+	font-size: 0.75em;
+}
+

@@ -1,0 +1,23 @@
+body {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.section {
+	margin-top: 1.25em;
+}
+
+#branding {
+}
+
+#content {
+}
+	#content .primary {
+	}
+
+#credits {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
