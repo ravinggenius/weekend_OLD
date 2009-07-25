@@ -23,11 +23,11 @@ body {
 	#content .primary {
 	}
 		#answer,
-		#countdown {
+		#timer {
 			font-size: 5em;
 			font-weight: bold;
 		}
-		#countdown {
+		#timer {
 		}
 
 #credits {
