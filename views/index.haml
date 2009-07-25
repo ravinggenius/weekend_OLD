@@ -1,11 +1,11 @@
 %p{ :id => 'answer' }= @answer
 %p{ :id => 'comment' }= @comment
-%div{ :id => 'countdown', :class => 'time' }<
-  %span{ :class => 'time_segment hour' }<
+%div{ :id => 'countdown', :class => 'time' }
+  %span{ :class => 'time_segment hour' }><
     = '%03d'.%(@countdown[:hour])
   = ':'
-  %span{ :class => 'time_segment minute' }<
+  %span{ :class => 'time_segment minute' }><
     = '%02d'.%(@countdown[:minute])
   = ':'
-  %span{ :class => 'time_segment second' }<
+  %span{ :class => 'time_segment second' }><
     = '%02d'.%(@countdown[:second])
