@@ -10,14 +10,7 @@ var rg = {
     target: 0
   },
 
-  chrome: {
-    answer: $('#answer'),
-    comment: $('#comment'),
-
-    hour: $('#timer .hour'),
-    minute: $('#timer .minute'),
-    second: $('#timer .second')
-  },
+  chrome: {},
 
   helpers: {
     two: function (n) {
@@ -31,6 +24,13 @@ var rg = {
 
   app: {
     init: function () {
+      rg.chrome.answer = $('#answer');
+      rg.chrome.comment = $('#comment');
+
+      rg.chrome.hour = $('#timer .hour');
+      rg.chrome.minute = $('#timer .minute');
+      rg.chrome.second = $('#timer .second');
+
       setInterval('rg.app.tick()', 1000);
     },
 
