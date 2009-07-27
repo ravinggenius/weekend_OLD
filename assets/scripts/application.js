@@ -41,6 +41,8 @@ var rg = {
 
         var c = data.countdown;
         rg.config.counter = (((c.hour * 60) + c.minute) * 60) + c.second;
+
+        data = null;
       });
     },
 
@@ -69,6 +71,8 @@ var rg = {
 
       offset = (offset - Math.floor(offset)) * 60;
       rg.chrome.second.text(rg.helpers.two(Math.floor(offset)));
+
+      offset = null;
     }
   }
 };
