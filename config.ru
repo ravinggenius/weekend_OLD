@@ -1,3 +1,4 @@
+# http://info.michael-simons.eu/2009/07/29/creating-a-self-containing-mvc-application-with-sinatra/
 # To use with thin 
 #thin start -p PORT -R config.ru
 
