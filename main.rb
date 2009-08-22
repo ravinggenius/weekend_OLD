@@ -6,10 +6,7 @@ $:.unshift File.join(File.dirname(__FILE__), 'vendor', 'sinatra', 'lib')
 require 'sinatra'
 require File.join(File.dirname(__FILE__), 'lib', 'weekend_app')
 require 'haml'
-
 require 'models/message'
-
-set :public, 'assets'
 
 SITE_TITLE = 'IsItTheWeekendYet?'
 SITE_TAGLINE = 'the question on everyone\'s mind'

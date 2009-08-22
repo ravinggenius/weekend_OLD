@@ -1,6 +1,9 @@
+require 'rubygems'
 require 'activesupport'
 
 class Message
+  attr_reader :answer, :comment, :countdown
+
   def initialize
     right_now = Time.now
 
@@ -50,11 +53,11 @@ class Message
   end
 
   # needed for sinatra
-  def to_json
-    cd = countdown
-    <<JSON
-{"answer": "#{answer}", "comment": "#{comment}", "countdown": {"hour": #{cd[:hour]}, "minute": #{cd[:minute]}, "second": #{cd[:second]}}}
-JSON
-  end
+  #def to_json
+  #  cd = countdown
+  #  <<JSON
+#{"answer": "#{answer}", "comment": "#{comment}", "countdown": {"hour": #{cd[:hour]}, "minute": #{cd[:minute]}, "second": #{cd[:second]}}}
+#JSON
+  #end
 end
 
