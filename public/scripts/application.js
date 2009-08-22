@@ -31,7 +31,7 @@ var rg = {
       rg.chrome.minute = $('#timer .minute');
       rg.chrome.second = $('#timer .second');
 
-      setInterval('rg.app.tick()', 1000);
+      setInterval('rg.app.tick()', 999);
     },
 
     sync: function () {
