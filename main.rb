@@ -28,8 +28,8 @@ get '/about/' do
 end
 
 post '/timezone/' do
-  # set the timezone cookie
-  # this will be done in JS if available
+  # TODO set the timezone cookie
+  # this should be done in JS if available
   redirect '/'
 end
 

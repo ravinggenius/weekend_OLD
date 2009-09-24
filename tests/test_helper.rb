@@ -9,7 +9,7 @@ Sinatra::Default.set(
   :logging => false
 )
 
-require File.join(File.dirname(__FILE__), '..', 'weekend_app.rb')
+require File.join(File.dirname(__FILE__), '..', 'weekend_app')
 
 module TestHelper
   def app
