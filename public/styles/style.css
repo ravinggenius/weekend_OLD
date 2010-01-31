@@ -3,12 +3,19 @@
 	src: url(/fonts/Abecedarian.ttf) format("truetype");
 }
 
+html {
+	background-color: #000000;
+	color: #ffffff;
+}
+
 body {
 	font-family: "Abecedarian", "Purisa", "Umpush", "Granada", "Helvetica", "Arial", sans-serif;
+	margin: 0 auto;
 }
 
 .section {
 	text-align: center;
+	margin-top: 1.25em;
 }
 
 #branding {
@@ -31,6 +38,8 @@ body {
 		}
 
 #credits {
+	position: fixed;
 	font-size: 0.75em;
+	bottom: 0;
+	width: 100%;
 }
-
