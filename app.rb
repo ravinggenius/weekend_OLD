@@ -3,6 +3,8 @@ require 'sinatra'
 require 'haml'
 require 'models/message'
 
+set :haml, { :format => :html5, :attr_wrapper => '"' }
+
 SITE_TITLE = 'IsItTheWeekendYet?'
 SITE_TAGLINE = 'the question on everyone\'s mind'
 
