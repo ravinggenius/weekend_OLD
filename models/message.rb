@@ -1,4 +1,4 @@
-require 'activesupport'
+require 'active_support'
 
 class Message
   attr_reader :answer, :comment, :countdown
