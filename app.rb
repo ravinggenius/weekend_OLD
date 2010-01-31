@@ -16,6 +16,7 @@ get '/' do
 end
 
 get '/application.css' do
+  content_type :css
   sass :style
 end
 
