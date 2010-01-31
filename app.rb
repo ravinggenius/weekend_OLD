@@ -1,10 +1,5 @@
-# http://earthcode.com/blog/2008/12/building_a_simple_sinatradatam.html
-# also check github account for sample apps…
-
 require 'rubygems'
-$:.unshift File.join(File.dirname(__FILE__), 'vendor', 'sinatra', 'lib')
 require 'sinatra'
-require File.join(File.dirname(__FILE__), 'lib', 'weekend_app')
 require 'haml'
 require 'models/message'
 
@@ -19,6 +14,7 @@ get '/' do
 end
 
 get '/counts.json' do
+  content_type :json
   Message.new.to_json
 end
 
@@ -27,17 +23,12 @@ get '/about/' do
   haml :about
 end
 
-post '/timezone/' do
+post '/timezone' do
   # TODO set the timezone cookie
   # this should be done in JS if available
   redirect '/'
 end
 
-error do
-  request.env["sinatra.error"].message
-end
-
 not_found do
-  #401, 'That URL doesn\'t exists.'
   'That URL doesn\'t exists.'
 end

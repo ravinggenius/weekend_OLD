@@ -8,8 +8,8 @@ class Message
     @next_event = @right_now.monday + (is_weekend ? 1.week + 8.hours : 4.days + 17.hours)
   end
 
-  def is_weekend
-    case @right_now.wday
+  def is_weekend?
+    @is_weekend ||= case @right_now.wday
       when 0, 6 then true                  # sunday, saturday
       when    1 then @right_now.hour < 8   # monday
       when    5 then @right_now.hour >= 17 # friday
@@ -18,19 +18,11 @@ class Message
   end
 
   def answer
-    if is_weekend
-      'Yes'
-    else
-      'No'
-    end
+    is_weekend? ? 'Yes' : 'No'
   end
 
   def comment
-    if is_weekend
-      'Enjoy it will it last!'
-    else
-      'What a drag.'
-    end
+    is_weekend? ? 'Enjoy it will it last!' : 'What a drag.'
   end
 
   def countdown
