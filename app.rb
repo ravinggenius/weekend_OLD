@@ -15,6 +15,10 @@ get '/' do
   haml :index
 end
 
+get '/application.css' do
+  sass :style
+end
+
 get '/counts.json' do
   content_type :json
   Message.new.to_json
