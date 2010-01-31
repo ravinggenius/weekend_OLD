@@ -18,11 +18,6 @@ get '/counts.json' do
   Message.new.to_json
 end
 
-get '/about/' do
-  @title = "About | #{SITE_TITLE}"
-  haml :about
-end
-
 post '/timezone' do
   # TODO set the timezone cookie
   # this should be done in JS if available
