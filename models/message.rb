@@ -5,7 +5,7 @@ class Message
 
   def initialize
     @right_now = Time.now
-    @next_event = @right_now.monday + (is_weekend ? 1.week + 8.hours : 4.days + 17.hours)
+    @next_event = @right_now.monday + (is_weekend? ? 1.week + 8.hours : 4.days + 17.hours)
   end
 
   def is_weekend?
