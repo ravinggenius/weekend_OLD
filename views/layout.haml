@@ -1,6 +1,6 @@
 !!! XML
 !!!
-%html{ :xmlns => 'http://www.w3.org/1999/xhtml', 'xml:lang' => 'en'}
+%html{ :lang => 'en', :xmlns => 'http://www.w3.org/1999/xhtml', 'xml:lang' => 'en'}
   %head
     %title= @title
 
@@ -11,27 +11,15 @@
     %link{ :rel => 'shortcut icon', :href => '' }
 
     / CSS
-    %style{ :type => 'text/css', :media => 'all'} @import url('http://assets.ravinggenius.com/css?eric_meyer-reset=1.0');
-    %style{ :type => 'text/css', :media => 'all'} @import url('/application.css');
-    %style{ :type => 'text/css', :media => 'all'} @import url('/vendor/blackbird_1_0/blackbird.css');
+    %style{ :type => 'text/css', :media => 'all'} @import url('http://assets.ravinggenius.com/css?html5reset=1.4');
+    %style{ :type => 'text/css', :media => 'all'} @import url('/styles/application.css');
 
     / JavaScript
-    %script{ :type => 'text/javascript', :src => '/vendor/blackbird_1_0/blackbird.js' }
     %script{ :type => 'text/javascript', :src => 'http://assets.ravinggenius.com/js?jquery=1.4' }
-    %script{ :type => 'text/javascript', :src => '/application.js' }
+    %script{ :type => 'text/javascript', :src => '/scripts/application.js' }
 
   %body
-    %div#flash
-
-    %div#branding.section
-      %h1#question IsItTheWeekendYet?
-
-    %div#content.section
-      %div.section.primary= yield
-      %div.section.secondary
-
-    %div#credit.section
-      %p &copy; 2009 Thomas Ingram
+    = yield
 
     :javascript
       var gaJsHost = ((document.location.protocol == 'https:') ? 'https://ssl.' : 'http://www.');
@@ -41,4 +29,3 @@
         pageTracker._trackPageview();
       } catch (err) {
       }
-

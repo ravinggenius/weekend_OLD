@@ -1,11 +1,17 @@
-%p{ :id => 'answer' }= @answer
-%p{ :id => 'comment' }= @comment
-%div{ :id => 'timer', :class => 'time' }
-  %span{ :class => 'time_segment hour' }><
-    = '%03d'.%(@countdown[:hour])
-  = ':'
-  %span{ :class => 'time_segment minute' }><
-    = '%02d'.%(@countdown[:minute])
-  = ':'
-  %span{ :class => 'time_segment second' }><
-    = '%02d'.%(@countdown[:second])
+%header{ :id => 'branding' }= SITE_TITLE
+
+%section{ :id => 'content' }
+  %p{ :id => 'answer' }= @answer
+  %p{ :id => 'comment' }= @comment
+  %div{ :id => 'timer', :class => 'time' }
+    %span{ :class => 'time_segment hour' }><
+      = '%03d'.%(@countdown[:hour])
+    = ':'
+    %span{ :class => 'time_segment minute' }><
+      = '%02d'.%(@countdown[:minute])
+    = ':'
+    %span{ :class => 'time_segment second' }><
+      = '%02d'.%(@countdown[:second])
+
+%footer{ :id => 'credits' }
+  %p &copy; 2009 Thomas Ingram

@@ -1,4 +1,5 @@
-require 'active_support'
+require 'active_support/core_ext'
+require 'active_support/json'
 
 class Message
   attr_reader :answer, :comment, :countdown
