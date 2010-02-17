@@ -1,4 +1,4 @@
-$(document).bind('ready', function () {
+$(document).ready(function () {
   rg.app.init();
 });
 
@@ -76,4 +76,3 @@ var rg = {
     }
   }
 };
-
