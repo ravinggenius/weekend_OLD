@@ -23,7 +23,7 @@ class Message
   end
 
   def comment
-    is_weekend? ? 'Enjoy it will it last!' : 'What a drag.'
+    is_weekend? ? 'Enjoy it while it lasts!' : 'What a drag.'
   end
 
   def countdown
