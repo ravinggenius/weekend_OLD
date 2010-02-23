@@ -1,4 +1,5 @@
-require 'rubygems'
+require 'boot'
+
 require 'compass'
 require 'sinatra'
 require 'haml'
