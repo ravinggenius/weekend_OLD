@@ -4,8 +4,8 @@ require 'active_support/json'
 class Message
   attr_reader :answer, :comment, :countdown
 
-  def initialize
-    @right_now = Time.now
+  def initialize now = nil
+    @right_now = now || Time.now
     @next_event = @right_now.monday + (is_weekend? ? 1.week + 8.hours : 4.days + 17.hours)
   end
 
