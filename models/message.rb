@@ -1,4 +1,5 @@
-require 'active_support/core_ext'
+#require 'active_support/core_ext'
+require 'active_support'
 
 class Message
   def initialize now = nil
