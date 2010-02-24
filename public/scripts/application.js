@@ -4,10 +4,13 @@ $(document).ready(function () {
 
 var rg = {
   config: {
-    counter: 0,
-    countUp: false,
-    interval: 1000,
-    target: 0
+    interval: 1000
+  },
+
+  counter: {
+    hours: 0,
+    minutes: 0,
+    seconds: 0
   },
 
   chrome: {},
@@ -31,48 +34,38 @@ var rg = {
       rg.chrome.minute = $('#timer .minute');
       rg.chrome.second = $('#timer .second');
 
-      setInterval('rg.app.tick()', 999);
+      setInterval('rg.app.tick()', rg.config.interval);
     },
 
     sync: function () {
       $.getJSON('counts.json', function (data) {
         rg.chrome.answer.text(data.answer);
         rg.chrome.comment.text(data.comment);
-
-        var c = data.countdown;
-        rg.config.counter = (((c.hour * 60) + c.minute) * 60) + c.second;
+        rg.counter = data.next_event;
 
         data = null;
       });
     },
 
     tick: function () {
-      if (rg.config.counter === rg.config.target) {
+      var c = rg.counter;
+
+      if (c.seconds > 0) {
+        c.seconds = c.seconds - 1;
+      } else if (c.minutes > 0) {
+        c.minutes = c.minutes - 1;
+        c.seconds = 59;
+      } else if (c.hours > 0) {
+        c.hours = c.hours - 1;
+        c.minutes = 59;
+        c.seconds = 59;
+      } else {
         rg.app.sync();
       }
 
-      if (rg.config.countUp) {
-        rg.config.counter = rg.config.counter + 1;
-      } else {
-        rg.config.counter = rg.config.counter - 1;
-      }
-
-      rg.app.updateScreen();
-    },
-
-    updateScreen: function () {
-      var offset = rg.config.counter;
-
-      offset = offset / 60 / 60;
-      rg.chrome.hour.text(rg.helpers.three(Math.floor(offset)));
-
-      offset = (offset - Math.floor(offset)) * 60;
-      rg.chrome.minute.text(rg.helpers.two(Math.floor(offset)));
-
-      offset = (offset - Math.floor(offset)) * 60;
-      rg.chrome.second.text(rg.helpers.two(Math.floor(offset)));
-
-      offset = null;
+      rg.chrome.hour.text(rg.helpers.three(c.hours));
+      rg.chrome.minute.text(rg.helpers.two(c.minutes));
+      rg.chrome.second.text(rg.helpers.two(c.seconds));
     }
   }
 };

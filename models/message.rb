@@ -1,9 +1,6 @@
 require 'active_support/core_ext'
-require 'active_support/json'
 
 class Message
-  attr_reader :answer, :comment, :countdown
-
   def initialize now = nil
     @right_now = now || Time.now
     @next_event = @right_now.monday + (is_weekend? ? 1.week + 8.hours : 4.days + 17.hours)
@@ -27,21 +24,27 @@ class Message
   end
 
   def countdown
-    countdown = {}
+    reply = {}
 
     # TODO adjust for client local time, in case they don't use DST
-    offset = (@next_event - Time.now).to_f
-    #countdown[:offset] = offset
+    offset = (@next_event - @right_now).to_f
+    #reply[:offset] = offset
 
     offset = offset / 60 / 60
-    countdown[:hour] = offset.floor
+    reply[:hour] = offset.floor
 
     offset = (offset - offset.floor) * 60
-    countdown[:minute] = offset.floor
+    reply[:minute] = offset.floor
 
     offset = (offset - offset.floor) * 60
-    countdown[:second] = offset.round
+    reply[:second] = offset.round
 
-    countdown
+    reply
+  end
+
+  def to_json
+    cd = countdown
+    h, m, s = cd[:hour], cd[:minute], cd[:second]
+    "{\"answer\":\"#{answer}\",\"comment\":\"#{comment}\",\"next_event\":{\"hours\":#{h},\"minutes\":#{m},\"seconds\":#{s}}}"
   end
 end
