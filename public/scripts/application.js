@@ -1,10 +1,11 @@
 $(document).ready(function () {
-  rg.app.init();
+  iitwy.app.init();
 });
 
-var rg = {
+var iitwy = {
   config: {
-    interval: 1000
+    interval: 1000,
+    updateScreen: false
   },
 
   counter: {
@@ -27,28 +28,30 @@ var rg = {
 
   app: {
     init: function () {
-      rg.chrome.answer = $('#answer');
-      rg.chrome.comment = $('#comment');
+      iitwy.chrome.answer = $('#answer');
+      iitwy.chrome.comment = $('#comment');
 
-      rg.chrome.hour = $('#timer .hour');
-      rg.chrome.minute = $('#timer .minute');
-      rg.chrome.second = $('#timer .second');
+      iitwy.chrome.hour = $('#timer .hour');
+      iitwy.chrome.minute = $('#timer .minute');
+      iitwy.chrome.second = $('#timer .second');
 
-      setInterval('rg.app.tick()', rg.config.interval);
+      setInterval('iitwy.app.tick()', iitwy.config.interval);
     },
 
     sync: function () {
-      $.getJSON('counts.json', function (data) {
-        rg.chrome.answer.text(data.answer);
-        rg.chrome.comment.text(data.comment);
-        rg.counter = data.next_event;
+      iitwy.config.updateScreen = false;
 
-        data = null;
+      $.getJSON('counts.json', function (data) {
+        iitwy.chrome.answer.text(data.answer);
+        iitwy.chrome.comment.text(data.comment);
+        iitwy.counter = data.next_event;
+
+        iitwy.config.updateScreen = true;
       });
     },
 
     tick: function () {
-      var c = rg.counter;
+      var c = iitwy.counter;
 
       if (c.seconds > 0) {
         c.seconds = c.seconds - 1;
@@ -60,12 +63,14 @@ var rg = {
         c.minutes = 59;
         c.seconds = 59;
       } else {
-        rg.app.sync();
+        iitwy.app.sync();
       }
 
-      rg.chrome.hour.text(rg.helpers.three(c.hours));
-      rg.chrome.minute.text(rg.helpers.two(c.minutes));
-      rg.chrome.second.text(rg.helpers.two(c.seconds));
+      if (iitwy.config.updateScreen) {
+        iitwy.chrome.hour.text(iitwy.helpers.three(c.hours));
+        iitwy.chrome.minute.text(iitwy.helpers.two(c.minutes));
+        iitwy.chrome.second.text(iitwy.helpers.two(c.seconds));
+      }
     }
   }
 };
