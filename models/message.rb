@@ -1,9 +1,15 @@
 #require 'active_support/core_ext'
 require 'active_support'
+require 'tzinfo'
 
 class Message
-  def initialize now = nil
-    @right_now = now || Time.now
+  def initialize options = {}
+    @right_now = begin
+      TZInfo::Timezone.get options[:zone]
+    rescue TZInfo::InvalidTimezoneIdentifier
+      TZInfo::Timezone.get 'Etc/UTC'
+    end.utc_to_local(options[:time] || Time.new.utc)
+
     @next_event = @right_now.monday + (is_weekend? ? 1.week + 8.hours : 4.days + 17.hours)
   end
 
@@ -27,9 +33,7 @@ class Message
   def countdown
     reply = {}
 
-    # TODO adjust for client local time, in case they don't use DST
     offset = (@next_event - @right_now).to_f
-    #reply[:offset] = offset
 
     offset = offset / 60 / 60
     reply[:hour] = offset.floor
