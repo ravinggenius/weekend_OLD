@@ -43,7 +43,6 @@ get '/counts.json' do
 end
 
 post '/timezone' do
-  # this should be done with JS if available
   set_cookie 'timezone', :value => params[:timezone], :expires => Time.now + (60 * 60 * 24 * 365 * 3)
   redirect '/'
 end

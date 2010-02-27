@@ -39,7 +39,13 @@ var iitwy = {
         $('#timezone_picker').toggleClass('inactive');
       }).trigger('click');
 
-      // TODO intercept submit action, place cookie and re-sync
+      $('form').bind('submit', function (eventObject) {
+        $.cookie('timezone', $(this).find('select').val(), {
+          expires: (365 * 3)
+        });
+        iitwy.app.sync();
+        return false;
+      });
 
       setInterval('iitwy.app.tick()', iitwy.config.interval);
     },
