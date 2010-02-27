@@ -35,6 +35,12 @@ var iitwy = {
       iitwy.chrome.minute = $('#timer .minute');
       iitwy.chrome.second = $('#timer .second');
 
+      $('#timezone_picker legend').addClass('handle').bind('click', function (eventObject) {
+        $('#timezone_picker').toggleClass('inactive');
+      }).trigger('click');
+
+      // TODO intercept submit action, place cookie and re-sync
+
       setInterval('iitwy.app.tick()', iitwy.config.interval);
     },
 

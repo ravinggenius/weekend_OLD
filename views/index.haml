@@ -13,7 +13,7 @@
     %span{ :class => 'time_segment second' }><
       = '%02d'.%(@countdown[:second])
 
-%section{ :id => '' }
+%section{ :id => 'timezone_picker' }
   %form{ :action => '/timezone', :method => 'post' }
     %fieldset
       %legend set timezone
