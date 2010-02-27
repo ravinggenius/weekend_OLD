@@ -22,15 +22,24 @@ footer
 
 #content
   margin-top: 1.25em
+  margin-bottom: 2.75em
   #answer,
   #timer
     font-size: 5em
     font-weight: bold
 
 #timezone_picker
+  background-color: #000000
   position: fixed
-  bottom: 1.25em
+  bottom: 1em
+  padding: 0.25em
   width: 100%
+  fieldset
+    border-style: none
+  legend
+    display: block
+    text-align: center
+    width: 100%
   legend.handle
     cursor: pointer
 
@@ -39,11 +48,14 @@ footer
     display: none
 
 #credits
+  background-color: #000000
   position: fixed
   font-size: 0.75em
-  margin-top: 1.25em
   bottom: 0
+  padding: 0.25em
   width: 100%
   a
     color: #FFFFFF
-    text-decoration: underline
+    display: inline-block
+    border-bottom: 1px dotted #FFFFFF
+    text-decoration: none
