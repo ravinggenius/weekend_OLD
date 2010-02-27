@@ -3,6 +3,7 @@ require 'boot'
 require 'compass'
 require 'sinatra'
 require 'haml'
+require 'tzinfo'
 
 require 'models/message'
 
@@ -28,19 +29,21 @@ get '/styles/:name.css' do
 end
 
 get '/' do
-  m = Message.new
+  m = Message.new :zone => request.cookies['timezone']
   @title = "#{SITE_TITLE} - #{SITE_TAGLINE}"
   @answer, @comment, @countdown = m.answer, m.comment, m.countdown
+  @timezones = ['Etc/UTC'] + TZInfo::Timezone.all_country_zone_identifiers.sort
+  @current_timezone = request.cookies['timezone']
   haml :index
 end
 
 get '/counts.json' do
   content_type :json, :charset => 'utf-8'
-  Message.new.to_json
+  Message.new(:zone => request.cookies['timezone']).to_json
 end
 
 post '/timezone' do
-  # TODO set the timezone cookie
-  # this should be done in JS if available
+  # this should be done with JS if available
+  set_cookie 'timezone', params[:timezone] # , :expires => Date.new
   redirect '/'
 end

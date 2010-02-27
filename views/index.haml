@@ -13,7 +13,18 @@
     %span{ :class => 'time_segment second' }><
       = '%02d'.%(@countdown[:second])
 
+%section{ :id => '' }
+  %form{ :action => '/timezone', :method => 'post' }
+    %fieldset
+      %legend set timezone
+      %div
+        %select{ :name => 'timezone' }
+          - @timezones.each do |tz|
+            %option{ :value => tz, :selected => tz == @current_timezone }= tz
+      %div
+        %button{ :type => 'submit' } set
+
 %footer{ :id => 'credits' }
   %p
-    &copy; 2009-2010 
+    &copy; 2009-2010
     %a{ :href => 'http://www.ravinggenius.com/' } Thomas Ingram
