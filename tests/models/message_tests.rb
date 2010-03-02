@@ -74,4 +74,24 @@ class MessageTests < Test::Unit::TestCase
       assert_equal expected, JSON.parse(@m.to_json)
     end
   end
+
+  context 'A new Message on Monday morning' do
+    setup do
+      @time = Time.utc 2010, 'mar', 1, 7, 15, 0
+      @m = Message.new :time => @time
+    end
+
+    should 'not add a week to countdown' do
+      expected = JSON.parse '{
+  "answer": "Yes",
+  "comment": "Enjoy it while it lasts!",
+  "next_event": {
+    "hours": 0,
+    "minutes": 45,
+    "seconds": 0
+  }
+}'
+      assert_equal expected, JSON.parse(@m.to_json)
+    end
+  end
 end
