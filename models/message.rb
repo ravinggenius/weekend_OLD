@@ -11,6 +11,7 @@ class Message
     end.utc_to_local(options[:time] || Time.new.utc)
 
     @next_event = @right_now.monday + (is_weekend? ? 1.week + 8.hours : 4.days + 17.hours)
+    @next_event = (@next_event - 1.week) if (@right_now.wday == 1) && (@right_now.hour < 8)
   end
 
   def is_weekend?
