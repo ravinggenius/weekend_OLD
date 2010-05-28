@@ -14,6 +14,10 @@ var iitwy = {
     seconds: 0
   },
 
+  cookieKeys: {
+    timezone: 'timezone'
+  },
+
   chrome: {},
 
   helpers: {
@@ -40,14 +44,20 @@ var iitwy = {
       }).trigger('click');
 
       $('form').bind('submit', function (eventObject) {
-        $.cookie('timezone', $(this).find('select').val(), {
+        $.cookie(iitwy.cookieKeys.timezone, $(this).find('select').val(), {
           expires: (365 * 3)
         });
+        iitwy.app.trackTimeZone();
         iitwy.app.sync();
         return false;
       });
 
       setInterval('iitwy.app.tick()', iitwy.config.interval);
+    },
+
+    trackTimeZone: function () {
+      pageTracker._setCustomVar(1, 'TimeZone', $.cookie(iitwy.cookieKeys.timezone), 3); // tracking in slot 1 at the page level
+      pageTracker._trackPageview();
     },
 
     sync: function () {
