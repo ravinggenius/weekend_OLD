@@ -20,6 +20,6 @@ get '/counts.json' do
 end
 
 post '/timezone' do
-  set_cookie 'timezone', :value => params[:timezone], :expires => Time.now + (60 * 60 * 24 * 365 * 3)
+  response.set_cookie 'timezone', :value => params[:timezone], :expires => Time.now + (60 * 60 * 24 * 365 * 3)
   redirect '/'
 end
