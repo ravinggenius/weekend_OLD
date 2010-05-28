@@ -5,44 +5,50 @@ require 'sinatra'
 require 'haml'
 require 'tzinfo'
 
-require 'models/message'
+Dir[Dir.pwd + '/models/*.rb'].each { |file| require file }
 
 configure do
   set :app_file, __FILE__
-  set :root, File.dirname(__FILE__)
-  set :haml, { :format => :html5, :attr_wrapper => '"' }
+  set :root, Dir.pwd
+  set :haml, { :format => :xhtml, :attr_wrapper => '"' }
 
   Compass.configuration do |config|
-    config.project_path = File.dirname(__FILE__)
+    config.project_path = Dir.pwd
     config.sass_dir = 'views/stylesheets'
   end
 
   set :sass, Compass.sass_engine_options
 end
 
-SITE_TITLE = 'IsItTheWeekendYet?'
-SITE_TAGLINE = 'the question on everyone\'s mind'
+helpers do
+  include Rack::Utils
 
-get '/styles/:name.css' do
-  content_type :css, :charset => 'utf-8'
-  sass :"stylesheets/#{params[:name]}"
+  alias_method :h, :escape_html
+
+  def partial name, locals = {}, options = {}
+    options[:layout] = :none
+    options[:locals] ||= {}
+    options[:locals].merge! locals
+    begin
+      haml name.to_sym, options
+    rescue
+      haml "shared/#{name}".to_sym, options
+    end
+  end
 end
 
-get '/' do
-  m = Message.new :zone => request.cookies['timezone']
-  @title = "#{SITE_TITLE} - #{SITE_TAGLINE}"
-  @answer, @comment, @countdown = m.answer, m.comment, m.countdown
-  @timezones = ['Etc/UTC'] + TZInfo::Timezone.all_country_zone_identifiers.sort
-  @current_timezone = request.cookies['timezone']
-  haml :index
+before do
+  @site_name = 'IsItTheWeekendYet?'
+  @site_tagline = 'the question on everyone\'s mind'
+
+  @title = if request.path == '/'
+    "#{@site_name} - #{@site_tagline}"
+  elsif
+    words = request.path
+    words = words.split('/').pop.map { |s| s.capitalize }.compact.join ': '
+    words = words.split('_').map { |s| s.capitalize }.compact.join ' '
+    "#{words} - #{@site_name}"
+  end
 end
 
-get '/counts.json' do
-  content_type :json, :charset => 'utf-8'
-  Message.new(:zone => request.cookies['timezone']).to_json
-end
-
-post '/timezone' do
-  set_cookie 'timezone', :value => params[:timezone], :expires => Time.now + (60 * 60 * 24 * 365 * 3)
-  redirect '/'
-end
+load 'routes.rb'
