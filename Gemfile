@@ -1,14 +1,22 @@
-source :gemcutter
+source :rubygems
 
-gem 'sinatra'
-gem 'haml'
-gem 'compass'
-#gem 'activesupport', '3.0.0.beta'
-gem 'activesupport'
+gem 'activesupport'#,         '3.0'
+gem 'compass',               '~> 0.10'
+gem 'haml',                  '~> 3.0'
+gem 'sinatra',               '~> 1.0'
 gem 'tzinfo'
-gem 'thin' # temp fix for heroku
+
+group :development do
+  gem 'awesome_print'
+  gem 'hirb'
+  gem 'ruby-debug'
+end
+
+group :production do
+  gem 'thin'
+end
 
 group :test do
-  gem 'shoulda'
   gem 'json'
+  gem 'shoulda'
 end
