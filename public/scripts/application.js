@@ -52,7 +52,7 @@ var iitwy = {
         return false;
       });
 
-      setInterval('iitwy.app.tick()', iitwy.config.interval);
+      setInterval(iitwy.app.tick, iitwy.config.interval);
     },
 
     trackTimeZone: function () {
