@@ -1,0 +1,91 @@
+--- 
+dependencies: 
+  tzinfo: 
+    group: 
+    - :default
+    version: ">= 0"
+  compass: 
+    group: 
+    - :default
+    version: ~> 0.10
+  ruby-debug: 
+    group: 
+    - :development
+    version: ">= 0"
+  haml: 
+    group: 
+    - :default
+    version: ~> 3.0
+  shoulda: 
+    group: 
+    - :test
+    version: ">= 0"
+  thin: 
+    group: 
+    - :production
+    version: ">= 0"
+  hirb: 
+    group: 
+    - :development
+    version: ">= 0"
+  sinatra: 
+    group: 
+    - :default
+    version: ~> 1.0
+  awesome_print: 
+    group: 
+    - :development
+    version: ">= 0"
+  json: 
+    group: 
+    - :test
+    version: ">= 0"
+  i18n: 
+    group: 
+    - :default
+    version: ">= 0"
+  activesupport: 
+    group: 
+    - :default
+    version: ~> 3.0.0.beta
+specs: 
+- activesupport: 
+    version: 3.0.0.beta4
+- awesome_print: 
+    version: 0.2.1
+- columnize: 
+    version: 0.3.1
+- haml: 
+    version: 3.0.13
+- compass: 
+    version: 0.10.2
+- daemons: 
+    version: 1.1.0
+- eventmachine: 
+    version: 0.12.10
+- hirb: 
+    version: 0.3.2
+- i18n: 
+    version: 0.4.1
+- json: 
+    version: 1.4.3
+- linecache: 
+    version: "0.43"
+- rack: 
+    version: 1.2.1
+- ruby-debug-base: 
+    version: 0.10.3
+- ruby-debug: 
+    version: 0.10.3
+- shoulda: 
+    version: 2.11.1
+- sinatra: 
+    version: "1.0"
+- thin: 
+    version: 1.2.7
+- tzinfo: 
+    version: 0.3.22
+hash: fa5d4410b723e4ff99416ececd628947ff0c22cb
+sources: 
+- Rubygems: 
+    uri: http://gemcutter.org
