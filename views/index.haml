@@ -39,7 +39,7 @@
           %div
             %select{ :name => 'timezone' }
               - @timezones.each do |tz|
-                %option{ :value => tz, :selected => tz == @current_timezone }= tz
+                %option{ :value => tz, :selected => tz == @current_timezone }= tz.gsub('/', ' :: ').gsub('_', ' ')
           %div
             %button{ :type => 'submit' } set
 
