@@ -1,10 +1,10 @@
 source :rubygems
 
-gem 'activesupport',         '~> 3.0.0.beta'
+gem 'activesupport',         '~> 3.0'
 gem 'compass',               '~> 0.10'
-gem 'haml',                  '~> 3.0'
+gem 'haml',                  '~> 3'
 gem 'i18n'
-gem 'sinatra',               '~> 1.0'
+gem 'sinatra',               '~> 1'
 gem 'tzinfo'
 
 group :development do

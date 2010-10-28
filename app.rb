@@ -1,10 +1,5 @@
 require 'boot'
 
-require 'compass'
-require 'sinatra'
-require 'haml'
-require 'tzinfo'
-
 Dir[Dir.pwd + '/models/*.rb'].each { |file| require file }
 
 configure do
@@ -25,7 +20,7 @@ helpers do
 
   alias_method :h, :escape_html
 
-  def partial name, locals = {}, options = {}
+  def partial(name, locals = {}, options = {})
     options[:layout] = :none
     options[:locals] ||= {}
     options[:locals].merge! locals
