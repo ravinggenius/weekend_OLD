@@ -7,9 +7,9 @@
 
     / %link{ :rel => 'shortcut icon', :href => '/images/favicon.ico' }/
 
-    = partial :script_tags, :files => ['http://assets.ravinggenius.com/js?modernizr=1.1&jquery=1.4&jquery_plugins=cookie-1.0', '/scripts/application.js']
+    = partial :script_tags, :files => ['/vendor/modernizr.js', '/vendor/jquery.js', '/scripts/application.js']
 
-    = partial :style_tags, :files => ['http://assets.ravinggenius.com/css?html5reset=1.4', '/styles/application.css']
+    = partial :style_tags, :files => ['/vendor/html5reset.css', '/styles/application.css']
 
     = partial :tracking_google, :google_analytics_tracking_code => 'UA-13210830-2'
 
