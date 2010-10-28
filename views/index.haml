@@ -5,13 +5,11 @@
 
     %meta{ 'http-equiv' => 'Content-Type', 'content' => 'text/html; charset=utf-8' }/
 
-    =# %link{ :rel => 'shortcut icon', :href => '/images/favicon.ico' }/
+    / %link{ :rel => 'shortcut icon', :href => '/images/favicon.ico' }/
 
-    %script{ :type => 'text/javascript', :src => 'http://assets.ravinggenius.com/js?modernizr=1.1&jquery=1.4&jquery_plugins=cookie-1.0' }
-    %style{ :type => 'text/css', :media => 'all'} @import url('http://assets.ravinggenius.com/css?html5reset=1.4');
+    = partial :script_tags, :files => ['http://assets.ravinggenius.com/js?modernizr=1.1&jquery=1.4&jquery_plugins=cookie-1.0', '/scripts/application.js']
 
-    %style{ :type => 'text/css', :media => 'all'} @import url('/styles/application.css');
-    %script{ :type => 'text/javascript', :src => '/scripts/application.js' }
+    = partial :style_tags, :files => ['http://assets.ravinggenius.com/css?html5reset=1.4', '/styles/application.css']
 
     = partial :tracking_google, :google_analytics_tracking_code => 'UA-13210830-2'
 
