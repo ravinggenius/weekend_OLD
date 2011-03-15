@@ -1,4 +1,4 @@
-$(document).ready(function () {
+jQuery(function ($) {
   var iitwy = {
     config: {
       interval: 1000,

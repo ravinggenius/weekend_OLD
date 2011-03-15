@@ -1,9 +1,10 @@
+!!! XML
 !!! 5
 %html{ :lang => 'en', :xmlns => 'http://www.w3.org/1999/xhtml', 'xml:lang' => 'en' }
   %head
     %title= @title
 
-    %meta{ 'http-equiv' => 'Content-Type', 'content' => 'text/html; charset=utf-8' }/
+    %meta{ :charset => 'utf-8' }/
 
     / %link{ :rel => 'shortcut icon', :href => '/images/favicon.ico' }/
 
@@ -12,7 +13,7 @@
 
     = partial :tracking_google, :google_analytics_tracking_code => 'UA-13210830-2'
 
-  %body
+  %body{ @page_classes }
     %header#branding
       %span.h= @site_name
 
