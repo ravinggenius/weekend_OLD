@@ -7,9 +7,8 @@
 
     / %link{ :rel => 'shortcut icon', :href => '/images/favicon.ico' }/
 
+    = partial :style_tags, :files => ['/styles/application.css']
     = partial :script_tags, :files => ['/vendor/modernizr.js', '/vendor/jquery.js', '/vendor/jquery.cookie.js', '/scripts/application.js']
-
-    = partial :style_tags, :files => ['/vendor/html5reset.css', '/styles/application.css']
 
     = partial :tracking_google, :google_analytics_tracking_code => 'UA-13210830-2'
 
