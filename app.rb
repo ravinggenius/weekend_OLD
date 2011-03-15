@@ -1,4 +1,4 @@
-require 'boot'
+require './boot'
 
 Dir[Dir.pwd + '/models/*.rb'].each { |file| require file }
 
@@ -21,7 +21,7 @@ helpers do
   alias_method :h, :escape_html
 
   def partial(name, locals = {}, options = {})
-    options[:layout] = :none
+    options[:layout] = nil
     options[:locals] ||= {}
     options[:locals].merge! locals
     begin
@@ -33,17 +33,27 @@ helpers do
 end
 
 before do
+  rpath = request.path[1..-1]
+  @page_classes = { :class => rpath.blank? ? :index : rpath }
+
   @site_name = 'IsItTheWeekendYet?'
   @site_tagline = 'the question on everyone\'s mind'
 
-  @title = if request.path == '/'
-    "#{@site_name} - #{@site_tagline}"
-  elsif
-    words = request.path
-    words = words.split('/').pop.map { |s| s.capitalize }.compact.join ': '
-    words = words.split('_').map { |s| s.capitalize }.compact.join ' '
-    "#{words} - #{@site_name}"
+  words = request.path
+  words = words.gsub File.extname(words), ''
+  words = words.sub '/', ''
+  words = words.split('/').map { |s| s.capitalize }.compact.join ': '
+  words = words.split('_').map { |s| s.capitalize }.compact.join ' '
+
+  @page_title = words.empty? ? 'Home' : words
+  @title = [@page_title, @site_name, @site_tagline].reject(&:empty?)[0..1].join ' - '
+
+  @menu = [
+    { :href => '/', :text => 'Home' }
+  ].map do |item|
+    item[:is_current] = item[:href] == request.path
+    item
   end
 end
 
-load 'routes.rb'
+require './routes'

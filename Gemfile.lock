@@ -1,34 +1,41 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    activesupport (3.0.1)
-    awesome_print (0.2.1)
-    columnize (0.3.1)
+    activesupport (3.0.5)
+    archive-tar-minitar (0.5.2)
+    awesome_print (0.3.2)
+    columnize (0.3.2)
     compass (0.10.6)
       haml (>= 3.0.4)
     daemons (1.1.0)
     eventmachine (0.12.10)
-    haml (3.0.22)
-    hirb (0.3.4)
-    i18n (0.4.2)
-    json (1.4.6)
-    linecache (0.43)
-    rack (1.2.1)
-    ruby-debug (0.10.3)
-      columnize (>= 0.1)
-      ruby-debug-base (~> 0.10.3.0)
-    ruby-debug-base (0.10.3)
-      linecache (>= 0.3)
+    haml (3.0.25)
+    hirb (0.4.0)
+    i18n (0.5.0)
+    json (1.5.1)
+    linecache19 (0.5.11)
+      ruby_core_source (>= 0.1.4)
+    rack (1.2.2)
+    ruby-debug-base19 (0.11.24)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby_core_source (>= 0.1.4)
+    ruby-debug19 (0.11.6)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby-debug-base19 (>= 0.11.19)
+    ruby_core_source (0.1.4)
+      archive-tar-minitar (>= 0.5.2)
     shoulda (2.11.3)
-    sinatra (1.1.0)
+    sinatra (1.2.0)
       rack (~> 1.1)
-      tilt (~> 1.1)
-    thin (1.2.7)
+      tilt (< 2.0, >= 1.2.2)
+    thin (1.2.8)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
-    tilt (1.1)
-    tzinfo (0.3.23)
+    tilt (1.2.2)
+    tzinfo (0.3.25)
 
 PLATFORMS
   ruby
@@ -37,11 +44,11 @@ DEPENDENCIES
   activesupport (~> 3.0)
   awesome_print
   compass (~> 0.10)
-  haml (~> 3)
+  haml
   hirb
   i18n
   json
-  ruby-debug
+  ruby-debug19
   shoulda
   sinatra (~> 1)
   thin

@@ -1,10 +1,9 @@
-require File.join(File.dirname(__FILE__), '/../boot')
+require 'pathname'
 
-[
-  'models'
-].each do |test|
-  Dir.foreach File.join(File.dirname(__FILE__), test) do |test_case|
-    next if File.directory? test_case
-    require File.join(File.dirname(__FILE__), test, test_case)
-  end
+require_relative '../boot'
+
+tests_dir = (Pathname.new(__FILE__) + '..' + '..' + 'tests').expand_path
+tests_dir.children.each do |test_dir|
+  next unless test_dir.directory?
+  test_dir.children.each { |test| require test }
 end
