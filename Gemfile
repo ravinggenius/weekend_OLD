@@ -6,15 +6,12 @@ gem 'haml'
 gem 'i18n'
 gem 'sinatra', '~> 1'
 gem 'tzinfo'
+gem 'unicorn'
 
 group :development do
   gem 'awesome_print'
   gem 'hirb'
   gem 'ruby-debug19'
-end
-
-group :production do
-  gem 'thin'
 end
 
 group :test do
