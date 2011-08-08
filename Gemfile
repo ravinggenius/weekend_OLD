@@ -1,9 +1,11 @@
 source :rubygems
 
 gem 'activesupport', '~> 3.0'
-gem 'compass', '~> 0.10'
+gem 'compass'
 gem 'haml'
 gem 'i18n'
+gem 'rake'
+gem 'sass'
 gem 'sinatra', '~> 1'
 gem 'tzinfo'
 gem 'unicorn'
@@ -16,6 +18,5 @@ end
 
 group :test do
   gem 'json'
-  #gem 'rspec'
-  gem 'shoulda'
+  gem 'minitest'
 end

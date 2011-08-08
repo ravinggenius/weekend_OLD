@@ -22,13 +22,13 @@
       %p#comment= @comment
       %div#timer.time
         %span.time_segment.hour><
-          = '%03d'.%(@countdown[:hour])
+          = '%03d'.%(@countdown[:hours])
         = ':'
         %span.time_segment.minute><
-          = '%02d'.%(@countdown[:minute])
+          = '%02d'.%(@countdown[:minutes])
         = ':'
         %span.time_segment.second><
-          = '%02d'.%(@countdown[:second])
+          = '%02d'.%(@countdown[:seconds])
 
     %section#timezone_picker
       %form{ :action => '/timezone', :method => 'post' }
