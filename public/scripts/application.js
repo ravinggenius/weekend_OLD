@@ -29,6 +29,8 @@ jQuery(function ($) {
 
     app: {
       init: function () {
+        iitwy.chrome.body = $('body');
+
         iitwy.chrome.answer = $('#answer');
         iitwy.chrome.comment = $('#comment');
 
@@ -86,6 +88,9 @@ jQuery(function ($) {
         }
 
         if (iitwy.config.updateScreen) {
+          iitwy.chrome.body.css({
+            backgroundColor: 'rgb(' + c.hours + ', ' + c.minutes + ', ' + c.seconds + ')'
+          });
           iitwy.chrome.hour.text(iitwy.helpers.three(c.hours));
           iitwy.chrome.minute.text(iitwy.helpers.two(c.minutes));
           iitwy.chrome.second.text(iitwy.helpers.two(c.seconds));
