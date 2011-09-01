@@ -1,6 +1,3 @@
-require 'active_support/core_ext'
-require 'tzinfo'
-
 class Message
   def initialize(options = {})
     @right_now = lambda do
