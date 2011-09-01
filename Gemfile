@@ -1,6 +1,6 @@
 source :rubygems
 
-gem 'activesupport', '~> 3.0', :require => 'active_support/core_ext'
+gem 'activesupport', '~> 3.0.10', :require => 'active_support/core_ext'
 gem 'compass'
 gem 'haml'
 gem 'i18n'
