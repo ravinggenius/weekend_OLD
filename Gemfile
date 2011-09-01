@@ -1,6 +1,6 @@
 source :rubygems
 
-gem 'activesupport', '~> 3.0'
+gem 'activesupport'
 gem 'compass'
 gem 'haml'
 gem 'i18n'

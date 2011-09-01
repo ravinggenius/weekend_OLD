@@ -49,7 +49,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport (~> 3.0)
+  activesupport
   awesome_print
   compass
   haml
