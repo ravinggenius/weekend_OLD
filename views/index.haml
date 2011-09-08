@@ -30,11 +30,11 @@
       %form{ :action => '/timezone', :method => 'post' }
         %fieldset
           %legend set timezone
-          %div
+          %div.field
             %select{ :name => 'timezone' }
               - @timezones.each do |tz|
                 %option{ :value => tz, :selected => tz == @current_timezone }= tz.gsub('/', ' :: ').gsub('_', ' ')
-          %div
+          %div.field
             %button{ :type => 'submit' } set
 
     %footer#credits
