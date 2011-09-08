@@ -14,9 +14,6 @@
     = partial :tracking_google, :google_analytics_tracking_code => 'UA-13210830-2'
 
   %body{ @page_classes }
-    %header#branding
-      %span.h= @site_name
-
     %section#content
       %p#answer= @answer
       %p#comment= @comment
