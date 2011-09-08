@@ -63,6 +63,7 @@ jQuery(function ($) {
 
         $.getJSON('counts.json', function (data) {
           iitwy.chrome.answer.text(data.answer);
+          iitwy.chrome.body.removeClass('answer-no answer-yes').addClass('answer-' + data.answer.toLowerCase());
           iitwy.counter = data.next_event;
 
           iitwy.config.updateScreen = true;

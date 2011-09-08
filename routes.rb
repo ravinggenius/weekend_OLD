@@ -9,6 +9,7 @@ end
 get '/' do
   m = Message.new :zone => request.cookies['timezone']
   @answer, @countdown = m.answer, m.countdown
+  @answer_class = "answer-#{m.answer.downcase}"
   @timezones = ['Etc/UTC'] + TZInfo::Timezone.all_country_zone_identifiers.sort
   @current_timezone = request.cookies['timezone']
   haml :index

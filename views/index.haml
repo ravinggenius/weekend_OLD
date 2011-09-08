@@ -13,7 +13,7 @@
 
     = partial :tracking_google, :google_analytics_tracking_code => 'UA-13210830-2'
 
-  %body{ @page_classes }
+  %body{ @page_classes, :class => @answer_class }
     %section#content
       %p#answer= @answer
       %div#timer.time
