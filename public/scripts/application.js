@@ -87,6 +87,8 @@ jQuery(function ($) {
 
         if (iitwy.config.updateScreen) {
           iitwy.chrome.body.css({
+            // rgb(62, 59, 59) - rgb(0, 0, 0) weekend
+            // rgb(104, 59, 59) - rgb(0, 0, 0) weekdays
             backgroundColor: 'rgb(' + c.hours + ', ' + c.minutes + ', ' + c.seconds + ')'
           });
           iitwy.chrome.hour.text(iitwy.helpers.three(c.hours));
