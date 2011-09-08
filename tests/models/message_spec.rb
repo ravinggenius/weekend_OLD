@@ -14,7 +14,6 @@ describe 'A new Message for UTC' do
   it 'should get the basics right' do
     [
       :answer,
-      :comment,
       :countdown,
       :is_weekend?,
       :to_json
@@ -25,7 +24,6 @@ describe 'A new Message for UTC' do
     expected = JSON.parse <<-JSON
 {
   "answer": "No",
-  "comment": "What a drag.",
   "next_event": {
     "hours": 17,
     "minutes": 0,
@@ -47,7 +45,6 @@ describe 'A new Message for local time' do
     expected = JSON.parse <<-JSON
 {
   "answer": "No",
-  "comment": "What a drag.",
   "next_event": {
     "hours": 22,
     "minutes": 0,
@@ -69,7 +66,6 @@ describe 'A new Message with a invalid timezone given' do
     expected = JSON.parse <<-JSON
 {
   "answer": "No",
-  "comment": "What a drag.",
   "next_event": {
     "hours": 17,
     "minutes": 0,
@@ -91,7 +87,6 @@ describe 'A new Message on Monday morning' do
     expected = JSON.parse <<-JSON
 {
   "answer": "Yes",
-  "comment": "Enjoy it while it lasts!",
   "next_event": {
     "hours": 0,
     "minutes": 45,

@@ -28,10 +28,6 @@ class Message
     is_weekend? ? 'Yes' : 'No'
   end
 
-  def comment
-    is_weekend? ? 'Enjoy it while it lasts!' : 'What a drag.'
-  end
-
   def countdown
     reply = {}
 
@@ -52,7 +48,6 @@ class Message
   def as_json
     {
       :answer => answer,
-      :comment => comment,
       :next_event => countdown
     }
   end

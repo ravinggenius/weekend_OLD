@@ -32,7 +32,6 @@ jQuery(function ($) {
         iitwy.chrome.body = $('body');
 
         iitwy.chrome.answer = $('#answer');
-        iitwy.chrome.comment = $('#comment');
 
         iitwy.chrome.hour = $('#timer .hour');
         iitwy.chrome.minute = $('#timer .minute');
@@ -64,7 +63,6 @@ jQuery(function ($) {
 
         $.getJSON('counts.json', function (data) {
           iitwy.chrome.answer.text(data.answer);
-          iitwy.chrome.comment.text(data.comment);
           iitwy.counter = data.next_event;
 
           iitwy.config.updateScreen = true;

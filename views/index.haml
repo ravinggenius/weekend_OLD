@@ -16,7 +16,6 @@
   %body{ @page_classes }
     %section#content
       %p#answer= @answer
-      %p#comment= @comment
       %div#timer.time
         %span.time_segment.hour><
           = '%03d'.%(@countdown[:hours])

@@ -8,7 +8,7 @@ end
 
 get '/' do
   m = Message.new :zone => request.cookies['timezone']
-  @answer, @comment, @countdown = m.answer, m.comment, m.countdown
+  @answer, @countdown = m.answer, m.countdown
   @timezones = ['Etc/UTC'] + TZInfo::Timezone.all_country_zone_identifiers.sort
   @current_timezone = request.cookies['timezone']
   haml :index
