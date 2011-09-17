@@ -7,15 +7,13 @@ task :tests, :path do |t, args|
   args.with_defaults(:path => 'tests')
 
   run_recursively = lambda do |dir|
-    Pathname.new(dir).expand_path.children.each do |dir_or_test|
+    dir.children.each do |dir_or_test|
       case
-        when dir_or_test.directory?
-          run_recursively.call dir_or_test
-        when dir_or_test.to_s.end_with?('_spec.rb'), dir_or_test.to_s.end_with?('_test.rb')
-          require_relative dir_or_test
+      when dir_or_test.directory?                        then run_recursively.call dir_or_test
+      when dir_or_test.to_s.match(/_(spec|test)s?\.rb$/) then require_relative dir_or_test
       end
     end
   end
 
-  run_recursively.call args[:path]
+  run_recursively.call Pathname.new(args[:path]).expand_path
 end
