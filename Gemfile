@@ -17,6 +17,7 @@ group :development do
 end
 
 group :test do
+  gem 'cover_me'
   gem 'json'
   gem 'minitest'
 end

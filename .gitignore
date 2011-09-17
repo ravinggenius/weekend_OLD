@@ -6,6 +6,7 @@ config/database.yml
 config/deploy.rb
 config/imports/*
 coverage
+coverage.data
 *.db
 db/*.db
 db/*.sqlite
