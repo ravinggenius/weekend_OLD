@@ -1,6 +1,6 @@
 require './boot'
 
-Dir[Dir.pwd + '/models/*.rb'].each { |file| require file }
+Dir[Dir.pwd + '/lib/*.rb'].each { |file| require file }
 
 configure do
   set :app_file, __FILE__

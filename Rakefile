@@ -2,7 +2,7 @@ require 'pathname'
 
 task :default => [ :tests ]
 
-desc 'Run all tests in path specified (defaults to tests). Tell Rake to start at a specific path with `rake tests[\'tests/models\']`'
+desc 'Run all tests in path specified (defaults to tests). Tell Rake to start at a specific path with `rake tests[\'tests/lib\']`'
 task :tests, :path do |t, args|
   args.with_defaults(:path => 'tests')
 
