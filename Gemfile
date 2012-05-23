@@ -12,8 +12,8 @@ gem 'unicorn'
 
 group :development do
   gem 'awesome_print'
+  gem 'debugger'
   gem 'hirb'
-  gem 'ruby-debug19'
 end
 
 group :test do
