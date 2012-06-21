@@ -37,30 +37,6 @@ class Weekend < Sinatra::Base
     end
   end
 
-  before do
-    rpath = request.path[1..-1]
-    @page_classes = { :class => rpath.blank? ? :index : rpath }
-
-    @site_name = 'IsItTheWeekendYet?'
-    @site_tagline = 'the question on everyone\'s mind'
-
-    words = request.path
-    words = words.gsub File.extname(words), ''
-    words = words.sub '/', ''
-    words = words.split('/').map { |s| s.capitalize }.compact.join ': '
-    words = words.split('_').map { |s| s.capitalize }.compact.join ' '
-
-    @page_title = words.empty? ? 'Home' : words
-    @title = [@page_title, @site_name, @site_tagline].reject(&:empty?)[0..1].join ' - '
-
-    @menu = [
-      { :href => '/', :text => 'Home' }
-    ].map do |item|
-      item[:is_current] = item[:href] == request.path
-      item
-    end
-  end
-
   get '/styles/:name.css' do
     content_type :css, :charset => 'utf-8'
     sass :"stylesheets/#{params[:name]}"
