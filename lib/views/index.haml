@@ -2,29 +2,26 @@
 !!! 5
 %html{ :lang => 'en', :xmlns => 'http://www.w3.org/1999/xhtml', 'xml:lang' => 'en' }
   %head
-    %title= @title
-
     %meta{ :charset => 'utf-8' }/
+
+    %title IsItTheWeekendYet?
 
     / %link{ :rel => 'shortcut icon', :href => '/images/favicon.ico' }/
 
-    = partial :style_tags, :files => ['/styles/application.css']
-    = partial :script_tags, :files => ['/vendor/modernizr.js', '/vendor/jquery.js', '/vendor/jquery.cookie.js', '/scripts/application.js']
+    = partial 'shared/style_tags', :files => ['/styles/application.css']
+    = partial 'shared/script_tags', :files => ['/vendor/modernizr.js', '/vendor/jquery.js', '/vendor/jquery.cookie.js', '/scripts/application.js']
 
-    = partial :tracking_google, :google_analytics_tracking_code => 'UA-13210830-2'
+    = partial 'shared/tracking_google', :google_analytics_tracking_code => 'UA-13210830-2'
 
-  %body{ @page_classes, :class => @answer_class }
+  %body{ :class => @answer_class }
     %section#content
       %p#answer= @answer
       %div#timer.time
-        %span.time_segment.hour><
-          = '%03d'.%(@countdown[:hours])
+        %span.time_segment.hour><= '%03d'.%(@countdown[:hours])
         = ':'
-        %span.time_segment.minute><
-          = '%02d'.%(@countdown[:minutes])
+        %span.time_segment.minute><= '%02d'.%(@countdown[:minutes])
         = ':'
-        %span.time_segment.second><
-          = '%02d'.%(@countdown[:seconds])
+        %span.time_segment.second><= '%02d'.%(@countdown[:seconds])
 
     %section#timezone_picker
       %form{ :action => '/timezone', :method => 'post' }
@@ -33,7 +30,7 @@
           %div.field
             %select{ :name => 'timezone' }
               - @timezones.each do |tz|
-                %option{ :value => tz, :selected => tz == @current_timezone }= tz.gsub('/', ' :: ').gsub('_', ' ')
+                %option{ :value => tz, :selected => tz == @current_timezone }= tz.to_s.gsub('/', ' :: ').gsub('_', ' ')
           %div.field
             %button{ :type => 'submit' } set
 
@@ -42,4 +39,4 @@
         &copy;
         %a{ :href => 'http://www.ravinggenius.com/' } Thomas Ingram
 
-    = partial :tracking_woopra
+    = partial 'shared/tracking_woopra'

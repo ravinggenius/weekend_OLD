@@ -1,3 +1,3 @@
-require './app'
+require './lib/weekend'
 
-run Sinatra::Application
+run Weekend

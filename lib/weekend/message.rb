@@ -44,15 +44,4 @@ class Message
 
     reply
   end
-
-  def as_json
-    {
-      :answer => answer,
-      :next_event => countdown
-    }
-  end
-
-  def to_json
-    as_json.to_json
-  end
 end
