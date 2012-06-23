@@ -1,13 +1,7 @@
-ENV['BUNDLE_GEMFILE'] ||= File.expand_path('./Gemfile')
+require_relative 'boot'
 
-if File.exists?(ENV['BUNDLE_GEMFILE'])
-  require 'bundler'
-
-  Bundler.require
-end
-
-require_relative 'weekend/message'
-require_relative 'weekend/message_presenter'
+require 'weekend/message'
+require 'weekend/message_presenter'
 
 class Weekend < Sinatra::Base
   configure do
