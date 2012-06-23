@@ -1,7 +1,11 @@
 @import compass/css3
 
-/* font from http://www.fontsquirrel.com/
-@include font-face('CarbonTypeRegular', font-files('/fonts/CarbonType/carbontype-webfont.woff', woff, '/fonts/CarbonType/carbontype-webfont.ttf', truetype, '/fonts/CarbonType/carbontype-webfont.svg#webfontW94z9Ps3', svg), '/fonts/CarbonType/carbontype-webfont.eot')
+/* fonts from http://www.fontsquirrel.com/
+@include font-face('3Dumb', font-files('/fonts/3Dumb/3Dumb-webfont.woff', woff, '/fonts/3Dumb/3Dumb-webfont.ttf', truetype, '/fonts/3Dumb/3Dumb-webfont.svg#3DumbRegular', svg), '/fonts/3Dumb/3Dumb-webfont.eot')
+@include font-face('Heavy-Data', font-files('/fonts/Heavy-Data/heavy_data-webfont.woff', woff, '/fonts/Heavy-Data/heavy_data-webfont.ttf', truetype, '/fonts/Heavy-Data/heavy_data-webfont.svg#HeavyDataRegular', svg), '/fonts/Heavy-Data/heavy_data-webfont.eot')
+
+/* font from http://www.losttype.com/font/?name=homestead
+@include font-face('Homestead', font-files('/fonts/Homestead/Homestead-Regular.otf', opentype))
 
 @import compass/reset
 
@@ -12,7 +16,7 @@ body
   @include transition(background-color 0.5s ease-in-out)
   background-color: #000000
   color: #EEEEEE
-  font-family: CarbonTypeRegular, monospace
+  font-family: Homestead, Helvetica, Arial, sans-serif
   margin: 0 auto
 
 section,
@@ -26,6 +30,10 @@ footer
     font-size: 10em
   #timer
     font-size: 5em
+  &.answer-no
+    font-family: 'Heavy-Data'
+  &.answer-yes
+    font-family: '3Dumb'
 
 #timezone_picker
   bottom: 1em

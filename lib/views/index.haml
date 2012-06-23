@@ -13,8 +13,8 @@
 
     = partial 'shared/tracking_google', :google_analytics_tracking_code => 'UA-13210830-2'
 
-  %body{ :class => @answer_class }
-    %section#content
+  %body
+    %section#content{ :class => @answer_class }
       %p#answer= @answer
       %div#timer.time
         %span.time_segment.hour><= '%03d'.%(@countdown[:hours])
