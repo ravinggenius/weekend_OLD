@@ -5,7 +5,7 @@ require 'weekend/message'
 describe Message do
   subject { Message.new }
 
-  it 'should get the basics right' do
+  it 'gets the basics right' do
     [
       :answer,
       :countdown,
@@ -13,13 +13,13 @@ describe Message do
     ].each { |method| subject.must_respond_to method }
   end
 
-  it 'should cound down the longest on Monday morning at 8:00'
+  it 'counts down the longest on Monday morning at 8:00'
 
   describe 'an invalid timezone' do
     let(:time) { Time.utc 2010 }
     subject { Message.new :time => time, :zone => 'Solar_System/Mars' }
 
-    it 'should not be the weekend' do
+    it 'is not the weekend' do
       subject.is_weekend?.must_equal false
       subject.answer.must_equal 'No'
     end
@@ -33,7 +33,7 @@ describe Message do
     let(:time) { Time.utc 2010, 3, 1, 7, 15, 0 }
     subject { Message.new :time => time }
 
-    it 'should be the weekend' do
+    it 'is the weekend' do
       subject.is_weekend?.must_equal true
       subject.answer.must_equal 'Yes'
     end
@@ -48,7 +48,7 @@ describe Message do
       let(:time) { Time.utc 2010, 10, 10, 10, 10, 10 }
       subject { Message.new :time => time }
 
-      it 'should be the weekend' do
+      it 'is the weekend' do
         subject.is_weekend?.must_equal true
         subject.answer.must_equal 'Yes'
       end
@@ -62,7 +62,7 @@ describe Message do
       let(:time) { Time.utc 2011, 11, 11, 11, 11, 11 }
       subject { Message.new :time => time }
 
-      it 'should not be the weekend' do
+      it 'is not the weekend' do
         subject.is_weekend?.must_equal false
         subject.answer.must_equal 'No'
       end
@@ -78,7 +78,7 @@ describe Message do
       let(:time) { Time.utc 2010, 01, 05, 13, 45, 37 }
       subject { Message.new :time => time, :zone => 'America/New_York' }
 
-      it 'should not be the weekend' do
+      it 'is not the weekend' do
         subject.is_weekend?.must_equal false
         subject.answer.must_equal 'No'
       end
@@ -92,7 +92,7 @@ describe Message do
       let(:time) { Time.utc 2011, 01, 01, 16, 35, 12 }
       subject { Message.new :time => time, :zone => 'America/New_York' }
 
-      it 'should be the weekend' do
+      it 'is the weekend' do
         subject.is_weekend?.must_equal true
         subject.answer.must_equal 'Yes'
       end
