@@ -13,7 +13,7 @@ describe MessagePresenter do
       expected = {
         :answer => 'No',
         :next_event => {
-          :hours => 0,
+          :hours => 17,
           :minutes => 0,
           :seconds => 0
         }
