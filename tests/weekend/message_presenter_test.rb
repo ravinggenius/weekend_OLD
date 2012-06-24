@@ -8,20 +8,23 @@ describe MessagePresenter do
   let(:message) { Message.new(:time => time) }
   subject { MessagePresenter.new(message) }
 
-  it 'responds with a full Hash when #as_json is called' do
-    expected = {
-      :answer => 'No',
-      :next_event => {
-        :hours => 0,
-        :minutes => 0,
-        :seconds => 0
+  describe '#as_json' do
+    it 'responds with a full Hash when #as_json is called' do
+      expected = {
+        :answer => 'No',
+        :next_event => {
+          :hours => 0,
+          :minutes => 0,
+          :seconds => 0
+        }
       }
-    }
-    subject.as_json.must_equal expected
+      subject.as_json.must_equal expected
+    end
   end
 
-  it 'correctly converts to JSON' do
-    expected = JSON.parse <<-JSON
+  describe '#to_json' do
+    it 'correctly converts to JSON' do
+      expected = JSON.parse <<-JSON
 {
   "answer": "No",
   "next_event": {
@@ -30,7 +33,8 @@ describe MessagePresenter do
     "seconds": 0
   }
 }
-    JSON
-    JSON.parse(subject.to_json).must_equal expected
+      JSON
+      JSON.parse(subject.to_json).must_equal expected
+    end
   end
 end
