@@ -8,13 +8,6 @@ describe MessagePresenter do
   let(:message) { Message.new(:time => time) }
   subject { MessagePresenter.new(message) }
 
-  it 'gets the basics right' do
-    [
-      :as_json,
-      :to_json
-    ].each { |method| subject.must_respond_to method }
-  end
-
   it 'responds with a full Hash when #as_json is called' do
     expected = {
       :answer => 'No',

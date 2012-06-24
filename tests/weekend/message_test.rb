@@ -5,14 +5,6 @@ require 'weekend/message'
 describe Message do
   subject { Message.new }
 
-  it 'gets the basics right' do
-    [
-      :answer,
-      :countdown,
-      :is_weekend?
-    ].each { |method| subject.must_respond_to method }
-  end
-
   it 'counts down the longest on Monday morning at 8:00'
 
   describe 'an invalid timezone' do
