@@ -1,3 +1,11 @@
+require 'rake/testtask'
+
+task :default => [ :specs ]
+
+Rake::TestTask.new(:specs) do |t|
+  t.pattern = 'spec/**/*_spec.rb'
+end
+
 desc 'Enumerate annotations. Optionally takes a pipe-separated list of tags to process'
 task :notes, :types do |t, args|
   args.with_defaults :types => 'FIXME|TODO'
