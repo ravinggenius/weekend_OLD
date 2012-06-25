@@ -1,4 +1,4 @@
-require_relative '../test_case'
+require_relative '../spec_helper'
 
 require 'weekend/message'
 require 'weekend/message_presenter'
@@ -18,7 +18,7 @@ describe MessagePresenter do
           :seconds => 0
         }
       }
-      subject.as_json.must_equal expected
+      subject.as_json.should == expected
     end
   end
 
@@ -34,7 +34,7 @@ describe MessagePresenter do
   }
 }
       JSON
-      JSON.parse(subject.to_json).must_equal expected
+      JSON.parse(subject.to_json).should == expected
     end
   end
 end

@@ -20,5 +20,5 @@ end
 group :test do
   gem 'cover_me'
   gem 'json'
-  gem 'minitest'
+  gem 'rspec'
 end

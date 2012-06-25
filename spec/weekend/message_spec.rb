@@ -1,4 +1,4 @@
-require_relative '../test_case'
+require_relative '../spec_helper'
 
 require 'weekend/message'
 
@@ -12,12 +12,12 @@ describe Message do
     subject { Message.new :time => time, :zone => 'Solar_System/Mars' }
 
     it 'is not the weekend' do
-      subject.is_weekend?.must_equal false
-      subject.answer.must_equal 'No'
+      subject.is_weekend?.should be_false
+      subject.answer.should == 'No'
     end
 
     it 'countdown must be accurate' do
-      subject.countdown.must_equal :hours => 17, :minutes => 0, :seconds => 0
+      subject.countdown.should == {:hours => 17, :minutes => 0, :seconds => 0}
     end
   end
 
@@ -26,12 +26,12 @@ describe Message do
     subject { Message.new :time => time }
 
     it 'is the weekend' do
-      subject.is_weekend?.must_equal true
-      subject.answer.must_equal 'Yes'
+      subject.is_weekend?.should be_true
+      subject.answer.should == 'Yes'
     end
 
     it 'countdown must be accurate' do
-      subject.countdown.must_equal :hours => 0, :minutes => 45, :seconds => 0
+      subject.countdown.should == {:hours => 0, :minutes => 45, :seconds => 0}
     end
   end
 
@@ -41,12 +41,12 @@ describe Message do
       subject { Message.new :time => time }
 
       it 'is the weekend' do
-        subject.is_weekend?.must_equal true
-        subject.answer.must_equal 'Yes'
+        subject.is_weekend?.should be_true
+        subject.answer.should == 'Yes'
       end
 
       it 'countdown must be accurate' do
-        subject.countdown.must_equal :hours => 21, :minutes => 49, :seconds => 50
+        subject.countdown.should == {:hours => 21, :minutes => 49, :seconds => 50}
       end
     end
 
@@ -55,12 +55,12 @@ describe Message do
       subject { Message.new :time => time }
 
       it 'is not the weekend' do
-        subject.is_weekend?.must_equal false
-        subject.answer.must_equal 'No'
+        subject.is_weekend?.should be_false
+        subject.answer.should == 'No'
       end
 
       it 'countdown must be accurate' do
-        subject.countdown.must_equal :hours => 5, :minutes => 48, :seconds => 49
+        subject.countdown.should == {:hours => 5, :minutes => 48, :seconds => 49}
       end
     end
   end
@@ -71,12 +71,12 @@ describe Message do
       subject { Message.new :time => time, :zone => 'America/New_York' }
 
       it 'is not the weekend' do
-        subject.is_weekend?.must_equal false
-        subject.answer.must_equal 'No'
+        subject.is_weekend?.should be_false
+        subject.answer.should == 'No'
       end
 
       it 'countdown must be accurate' do
-        subject.countdown.must_equal :hours => 80, :minutes => 14, :seconds => 23
+        subject.countdown.should == {:hours => 80, :minutes => 14, :seconds => 23}
       end
     end
 
@@ -85,12 +85,12 @@ describe Message do
       subject { Message.new :time => time, :zone => 'America/New_York' }
 
       it 'is the weekend' do
-        subject.is_weekend?.must_equal true
-        subject.answer.must_equal 'Yes'
+        subject.is_weekend?.should be_true
+        subject.answer.should == 'Yes'
       end
 
       it 'countdown must be accurate' do
-        subject.countdown.must_equal :hours => 44, :minutes => 24, :seconds => 48
+        subject.countdown.should == {:hours => 44, :minutes => 24, :seconds => 48}
       end
     end
   end
