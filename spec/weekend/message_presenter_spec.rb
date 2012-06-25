@@ -9,7 +9,7 @@ describe MessagePresenter do
   subject { MessagePresenter.new(the_message) }
 
   describe '#as_json' do
-    it 'responds with a full Hash when #as_json is called' do
+    it 'responds with a full Hash' do
       expected = {
         :answer => 'No',
         :next_event => {
@@ -23,7 +23,7 @@ describe MessagePresenter do
   end
 
   describe '#to_json' do
-    it 'correctly converts to JSON' do
+    it 'can convert' do
       expected = JSON.parse <<-JSON
 {
   "answer": "No",
