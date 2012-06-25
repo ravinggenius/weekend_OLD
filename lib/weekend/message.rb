@@ -9,12 +9,12 @@ class Message
     end.call
 
     @next_event = lambda do
-      reply = @right_now.monday + (is_weekend? ? 1.week + 8.hours : 4.days + 17.hours)
+      reply = @right_now.monday + (weekend? ? 1.week + 8.hours : 4.days + 17.hours)
       (@right_now.monday? && (@right_now.hour < 8)) ? (reply - 1.week) : reply
     end.call
   end
 
-  def is_weekend?
+  def weekend?
     case
       when @right_now.sunday?   then true
       when @right_now.monday?   then @right_now.hour < 8
@@ -25,7 +25,7 @@ class Message
   end
 
   def answer
-    is_weekend? ? 'Yes' : 'No'
+    weekend? ? 'Yes' : 'No'
   end
 
   def countdown
