@@ -1,4 +1,6 @@
 class Message
+  attr_reader :right_now, :next_event
+
   def initialize(options = {})
     @right_now = lambda do
       begin
@@ -9,17 +11,17 @@ class Message
     end.call
 
     @next_event = lambda do
-      reply = @right_now.monday + (weekend? ? 1.week + 8.hours : 4.days + 17.hours)
-      (@right_now.monday? && (@right_now.hour < 8)) ? (reply - 1.week) : reply
+      reply = right_now.monday + (weekend? ? 1.week + 8.hours : 4.days + 17.hours)
+      (right_now.monday? && (right_now.hour < 8)) ? (reply - 1.week) : reply
     end.call
   end
 
   def weekend?
     case
-      when @right_now.sunday?   then true
-      when @right_now.monday?   then @right_now.hour < 8
-      when @right_now.friday?   then @right_now.hour >= 17
-      when @right_now.saturday? then true
+      when right_now.sunday?   then true
+      when right_now.monday?   then right_now.hour < 8
+      when right_now.friday?   then right_now.hour >= 17
+      when right_now.saturday? then true
       else                           false
     end
   end
@@ -31,7 +33,7 @@ class Message
   def countdown
     reply = {}
 
-    offset = (@next_event - @right_now).to_f
+    offset = (next_event - right_now).to_f
 
     offset = offset / 60 / 60
     reply[:hours] = offset.floor
