@@ -5,8 +5,8 @@ require 'weekend/message_presenter'
 
 describe MessagePresenter do
   let(:time) { Time.utc(2010) }
-  let(:message) { Message.new(:time => time) }
-  subject { MessagePresenter.new(message) }
+  let(:the_message) { Message.new(:time => time) }
+  subject { MessagePresenter.new(the_message) }
 
   describe '#as_json' do
     it 'responds with a full Hash when #as_json is called' do
