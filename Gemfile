@@ -21,4 +21,5 @@ group :test do
   gem 'cover_me'
   gem 'json'
   gem 'rspec'
+  gem 'rspec-expectations', :git => 'git://github.com/rspec/rspec-expectations.git', :branch => :master
 end

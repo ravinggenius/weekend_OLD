@@ -18,7 +18,7 @@ describe MessagePresenter do
           :seconds => 0
         }
       }
-      subject.as_json.should == expected
+      expect(subject.as_json).to eq(expected)
     end
   end
 
@@ -34,7 +34,7 @@ describe MessagePresenter do
   }
 }
       JSON
-      JSON.parse(subject.to_json).should == expected
+      expect(JSON.parse(subject.to_json)).to eq(expected)
     end
   end
 end
