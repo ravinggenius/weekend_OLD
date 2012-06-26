@@ -26,7 +26,7 @@
     %section#timezone_picker
       %form{ :action => '/timezone', :method => 'post' }
         %fieldset
-          %legend set timezone
+          %legend.handle set timezone
           %div.field
             %select{ :name => 'timezone' }
               - @timezones.each do |tz|
