@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/rspec/rspec-expectations.git
-  revision: 40243447dd84aa5ec7cca13cf162f1f392d1bc29
+  revision: a3e283979ab5f2e1a77eb5a14d55379a9aa7241d
   branch: master
   specs:
     rspec-expectations (2.10.0)
@@ -15,7 +15,7 @@ GEM
     awesome_print (1.0.2)
     chunky_png (1.2.5)
     columnize (0.3.6)
-    compass (0.12.1)
+    compass (0.12.2)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
@@ -51,7 +51,7 @@ GEM
       rspec-mocks (~> 2.10.0)
     rspec-core (2.10.1)
     rspec-mocks (2.10.1)
-    sass (3.1.19)
+    sass (3.2.0.alpha.247)
     sinatra (1.3.2)
       rack (~> 1.3, >= 1.3.6)
       rack-protection (~> 1.2)
@@ -80,7 +80,7 @@ DEPENDENCIES
   rake
   rspec
   rspec-expectations!
-  sass
+  sass (~> 3.2.0.alpha)
   sinatra
   tzinfo
   unicorn

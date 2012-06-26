@@ -15,6 +15,10 @@
 $credit-size: 2rem
 $credit-padding: 0.5rem
 
+@mixin short-screen
+  @media (min-height: 37ex)
+    @content
+
 html
   font-size: 62.5%
 
@@ -44,10 +48,11 @@ footer
   font-size: $credit-size
 
 #timezone_picker
-  bottom: $credit-size + ($credit-padding * 2)
-  padding: $credit-padding 0
-  position: fixed
   width: 100%
+  @include short-screen
+    bottom: $credit-size + ($credit-padding * 2)
+    padding: $credit-padding 0
+    position: fixed
   fieldset
     border-style: none
   .handle
@@ -59,10 +64,11 @@ footer
       display: none
 
 #credits
-  bottom: 0
   padding: $credit-padding 0
-  position: fixed
   width: 100%
+  @include short-screen
+    bottom: 0
+    position: fixed
   a
     color: #FFFFFF
     display: inline-block
