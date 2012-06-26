@@ -12,6 +12,12 @@
 @include global-reset
 @include reset-html5
 
+$credit-size: 2rem
+$credit-padding: 0.5rem
+
+html
+  font-size: 62.5%
+
 body
   @include transition(background-color 0.5s ease-in-out)
   background-color: #000000
@@ -24,20 +30,22 @@ footer
   text-align: center
 
 #content
-  margin-top: 1.25em
-  margin-bottom: 2.75em
   #answer
-    font-size: 10em
+    font-size: 15rem
   #timer
-    font-size: 5em
+    font-size: 7.5rem
   .answer-no &
     font-family: 'Heavy-Data'
   .answer-yes &
     font-family: '3Dumb'
 
+#timezone_picker,
+#credits
+  font-size: $credit-size
+
 #timezone_picker
-  bottom: 1em
-  padding: 0.25em
+  bottom: $credit-size + ($credit-padding * 2)
+  padding: $credit-padding 0
   position: fixed
   width: 100%
   fieldset
@@ -52,8 +60,7 @@ footer
 
 #credits
   bottom: 0
-  font-size: 0.75em
-  padding: 0.25em
+  padding: $credit-padding 0
   position: fixed
   width: 100%
   a
