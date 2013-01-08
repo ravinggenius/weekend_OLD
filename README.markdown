@@ -1,1 +1,1 @@
-Simple website to countdown to the weekend.
+Project has been moved to [https://github.com/ravinggenius/weekend](https://github.com/ravinggenius/weekend).
